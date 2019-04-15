@@ -1,0 +1,46 @@
+import java.util.*;
+class watch
+{
+public static void main()
+{
+Scanner sc=new Scanner(System.in);
+
+int hrs=0;
+int min=0;
+int sec=0;
+String str;
+
+System.out.println("Enter lap and stop to stop the timer");
+ str="Start";
+ long previousTime=System.currentTimeMillis();
+while(!str.equals("Stop"))
+{ 
+    
+    str=sc.nextLine();
+   if (str.equals("Lap"))
+  {System.out.println(hrs+" "+min+" "+sec);
+      sec++;
+  continue;
+}
+else 
+{
+   if(sec>=60)
+   {
+       min =min+1;
+       sec =sec-60;
+    }
+    else if(min>=60)
+    {
+        hrs=hrs+1;
+        min=min-60;
+        sec=0;
+    }
+    else 
+    sec=sec+1;
+}
+long currTime=System.currentTimeMillis();
+if(currTime-previousTime>=1000)
+continue ;
+}
+System.out.println(hrs+" "+min+" "+sec);
+}}
